@@ -20,9 +20,10 @@ class Solution:
 
             mid = (l+r) // 2
 
-            if nums[mid]>nums[mid+1]:
-                return nums[mid+1]
+            if nums[mid]<nums[mid-1]:
+                return nums[mid]
             elif nums[mid]>nums[r]:
-                l = mid
+                l = mid+1
             else:
-                r = mid
+                r = mid-1
+            
