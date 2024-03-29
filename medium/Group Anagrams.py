@@ -5,14 +5,20 @@
 
 
 from typing import List
+from collections import defaultdict
 
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        ans = {}
+        anagrams = defaultdict(list)
+
         for s in strs:
-            key = ''.join(sorted(s))
-            ans.setdefault(key, []).append(s)
-        return list(ans.values())
+            freq = [0] * 26
+            for char in s:
+                freq[ord(char) - ord('a')] += 1
+            key = tuple(freq)
+            anagrams[key].append(s)
+
+        return list(anagrams.values())
         
 
 print(Solution().groupAnagrams(["eat","tea","tan","ate","nat","bat"]))
