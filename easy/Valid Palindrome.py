@@ -11,7 +11,7 @@ class Solution:
                 l+=1
                 if l>r:
                     return True
-            while not s[r].isalpha() and not s[r].isdigit() and r >= 1:
+            while not s[r].isalpha() and not s[r].isdigit():
                 r-=1
             if s[l].lower()!=s[r].lower():
                 return False
